@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css'/>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js'></script>
+    <style>
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background-color: #fee;
+        }
+        
+        .container{
+            max-width: 960px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:center;
+            text-align: center;
+            position: absolute;
+            top:0px;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+        }
+        .container .items{
+            padding:5px 20px 30px;
+            position: relative;
+            
+        }
+        .container .items .turn-right{
+            position: absolute;
+            border-radius: 50px;
+            width: 35px;
+            height: 35px;
+            background-color: #000;
+            color: #fff;
+            top: 0;
+            bottom: 0;
+            right: -35px;
+            margin: auto;
+            line-height: 35px;
+            text-align: center;
+            font-size: 20px;
+        }
+        
+        .container .items .turn-left{
+            position: absolute;
+            border-radius: 50px;
+            width: 35px;
+            height: 35px;
+            background-color: #000;
+            color: #fff;
+            top: 0;
+            bottom: 0;
+            left: -35px;
+            margin: auto;
+            line-height: 35px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .container .item{
+            display: flex;
+            flex-direction: column;
+            height: auto;   
+            max-width: 250px;
+        }
+        .container .item-1{
+            position: relative;
+            transform: translateX(0);
+        } 
+       
+        .container .item-2{
+            position: absolute;
+            top:5px;
+            transform: translateX(-100%);
+            transform: scale(0);
+        }
+        .container .item-3{
+            position: absolute;
+            top:5px;
+            transform: translateX(-100%);
+            transform: scale(0);
+        }
+        /* #item-switch-right:checked+.wrap .container .item-2{
+            transform: translateX(0%);
+            transition: .5s;
+        }
+        #item-switch-right:checked+.wrap .container .item-1{
+            transform: translateX(300%);
+            transition: .6s;
+           
+        }   */
+        .turnon-right{
+            transform: translateX(300%);
+            transition: .6s;
+        }
+        .turn-middle{
+            transform: translateX(0%);
+            transition: .6s;
+        }
+        .item p{
+            padding: 5px;
+        }
+        .item img {
+           padding:10px;
+        }
+        .item .read{
+            padding:10px 0 15px;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- <input type="checkbox" id="item-switch-right"> -->
+    <div class="wrap">
+        <div class="container">
+            <div class="title">
+                <h2>Our cource</h2>
+            </div>
+            <div class="items">
+
+                <div class="item item-1" style="background-color:#fff;">
+                    <img src="https://picsum.photos/300/250?random=1">
+                    <p>推廣教育</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quaerat, optio magni non
+                        nisi voluptatum in tenetur. Consequatur quia porro amet, tenetur, dicta sunt voluptates quam
+                        libero excepturi enim eos?</p>
+                    <a href="" class="read">ReadMore</a>
+                </div>
+               
+                <div class="item item-2 turnon-right" style="background-color:#aaa;">
+                    <img src="https://picsum.photos/300/250?random=1">
+                    <p>推廣教育</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quaerat, optio magni non
+                        nisi voluptatum in tenetur. Consequatur quia porro amet, tenetur, dicta sunt voluptates quam
+                        libero excepturi enim eos?</p>
+                    <a href="" class="read">ReadMore</a>
+                </div>
+                <div class="item item-3" style="background-color:#aff;">
+                    <img src="https://picsum.photos/300/250?random=1">
+                    <p>推廣教育</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quaerat, optio magni non
+                        nisi voluptatum in tenetur. Consequatur quia porro amet, tenetur, dicta sunt voluptates quam
+                        libero excepturi enim eos?</p>
+                    <a href="" class="read">ReadMore</a>
+                </div>
+                <label class="turn-right" for="item-switch-right">
+                    <i class="fa fa-angle-right"></i>
+                </label> 
+                <label class="turn-left" for="item-switch-left">
+                    <i class="fa fa-angle-left"></i>
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script>
+    const right_btn=document.querySelector('.turn-right');
+    let clicknum=0;
+    const item_2=document.querySelector('.item-2');
+    const item_1=document.querySelector('.item-1');
+    function clickHandler(){
+        if(clicknum==0){
+            item_1.style['transform']='translateX(100%)';
+            item_1.style['transition']='.5s';
+            item_2.style['transform']='translateX(0%)';
+            item_1.addEventListener("transitionend", transitionHandler);
+            // item_2.addEventListener("transitionend", transitionHandler_2);
+            clicknum++;
+        }
+        else if(clicknum==1){
+            item_2.style['transform']='translateX(100%)';
+            item_2.style['tansform']='scale(0)';
+
+            item_1.style['transform']='translateX(0%)';
+            
+        }
+    }
+    function transitionHandler(){
+       this.style['transform']='scale(0)';
+    }
+    function transitionHandler_2(){
+        this.style['transition']= ".6s";
+    }
+    right_btn.addEventListener('click',clickHandler);
+
+</script>
+
+</html>
+

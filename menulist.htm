@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+        body{
+            background-color: #546377;
+        }
+        .side-menu{
+            width: 300px;
+            height:100%;
+            background-image: linear-gradient(0deg, #faa ,#aaf);
+            display:flex;
+            flex-direction: column;
+        }
+        .side-menu form{
+            display: flex;
+            margin: 50px 10px 50px;
+            border-radius: 100px;
+            border: 1px solid #fff;
+            
+        }
+        
+        .side-menu form input,
+        .side-menu form button {
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            background-color: transparent;
+
+        }
+
+        .side-menu form input {
+            width: 230px;
+        }
+
+        .side-menu form button {
+            width: 50px;
+        }
+
+        .side-menu form input:focus,
+        .side-menu form button:focus {
+            outline: none;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="side-menu">
+        <form action="">
+            <input type="search"">
+            <button>查詢</button>
+        </form>
+        <ul class="nav">
+            <li><a href="#">類別1</a></li>
+            <li><a href="#">類別2</a></li>
+            <li><a href="#">類別3</a></li>
+            <li><a href="#">類別4</a></li>
+            <li><a href="#">類別5</a></li>
+        </ul>
+
+
+    </div>
+</body>
+
+</html>

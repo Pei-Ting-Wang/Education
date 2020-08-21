@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #546377;
+        }
+
+        .side-menu {
+            width: 300px;
+            height: 100%;
+            background-image: linear-gradient(0deg, #3381b0, #c2196c);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 5px 0px 10px hsla(240, 40%, 20%, .7);
+            position: relative;
+            transform: translateX(-100%);
+            transition: .3s;
+
+        }
+
+        .side-menu form {
+            display: flex;
+            margin: 50px 10px 50px;
+            border-radius: 100px;
+            border: 1px solid #fff;
+
+        }
+
+        .side-menu form input,
+        .side-menu form button {
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            background-color: transparent;
+
+        }
+
+        .side-menu form input {
+            width: 230px;
+        }
+
+        .side-menu form button {
+            width: 50px;
+        }
+
+        .side-menu form input:focus,
+        .side-menu form button:focus {
+            outline: none;
+        }
+
+        .side-menu label {
+            position: absolute;
+            width: 40px;
+            height: 80px;
+            background-color: #000;
+            color: #fff;
+            top: 0;
+            bottom: 0;
+            right: -40px;
+            margin: auto;
+            line-height: 80px;
+            text-align: center;
+            font-size: 30px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        #side-menu-switch:checked+.side-menu {
+            transform: translateX(0);
+
+        }
+
+        #side-menu-switch:checked+.side-menu label .fa {
+            transform: scaleX(-1);
+        }
+
+        #side-menu-switch {
+            display: none;
+        }
+
+        .nav a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+        }
+        .nav li + li:before{
+            content: '';
+            position: absolute;
+            border-top: 1px solid #fff;
+            left: 10px;
+            right: 10px;
+            top: 0px;
+        }
+        .nav li {
+            position: relative;
+        }
+       
+        .nav a .fa-angle-down{
+           position:absolute;
+           right: 15px;
+        }
+
+        .nav a .fa-hidden {
+            margin-right: -1.1em;
+            transform: scale(0);
+            transition: .3s;
+        }
+
+        .nav li:hover .fa-hidden {
+            margin-right: 0em;
+            transform: scale(1);
+        }
+
+        .nav li:hover>a {
+            background-color: rgba(0, 0, 0, .3);
+
+        }
+
+        .nav ul {
+            display: none;
+            position: absolute;
+            top: 6px;
+            left: 100%;
+            width: 300px;
+            background-color: rgba(255, 255, 255, .2);
+            box-shadow: 5px 0px 10px hsla(240, 40%, 20%, .7);
+        }
+
+        .nav li:hover>ul {
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav ul {
+                position: relative;
+                left: 20px;
+                top: 0;
+                width: 280px;
+                background-color: transparent;
+                box-shadow: none;
+            }
+            .nav ul ul{
+                width: 260px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="side-menu-switch">
+    <div class="side-menu">
+        <form action="">
+            <input type="search" placeholder="請輸入關鍵字">
+            <button>
+                查詢
+            </button>
+        </form>
+        <ul class="nav">
+            <li>
+                <a href="#">
+                    <i class="fa fa-bookmark fa-hidden" aria-hidden="true"></i>
+                    類別1
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </a>
+                <ul>
+                    <li><a href="#">類別1-1</a>
+                        <ul>
+                            <li><a href="#">類別1-1-1</a></li>
+                            <li><a href="#">類別1-2-1</a></li>
+                            <li><a href="#">類別1-3-4</a></li>
+                            <li><a href="#">類別1-4-5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">類別1-2</a>
+                        <ul>
+                            <li><a href="#">類別1-1-1</a></li>
+                            <li><a href="#">類別1-2-1</a></li>
+                            <li><a href="#">類別1-3-4</a></li>
+                            <li><a href="#">類別1-4-5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">類別1-3</a></li>
+                    <li><a href="#">類別1-4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bookmark fa-hidden" aria-hidden="true"></i>
+                    類別2</a>
+
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bookmark fa-hidden" aria-hidden="true"></i>
+                    類別3</a>
+
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bookmark fa-hidden" aria-hidden="true"></i>
+                    類別4</a>
+
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bookmark fa-hidden" aria-hidden="true"></i>
+                    類別5</a>
+
+            </li>
+        </ul>
+        <label for="side-menu-switch">
+            <i class="fa fa-angle-right"></i>
+        </label>
+    </div>
+
+</body>
+
+</html>

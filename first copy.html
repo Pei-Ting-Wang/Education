@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex:1;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-family: Microsoft JhengHei;
+            transition:0.5s;
+        }
+        .container p{
+            writing-mode: vertical-lr;
+            font-size:50px;
+        }
+
+        .open {
+            height: 100vh;
+            display: flex;
+            background-color: rgb(71, 206, 71);
+        }
+
+        .edu {
+            height: 100vh;
+            background-color: rgb(120, 176, 241);
+        }
+
+        .classify{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            font-size:30px;
+            
+            
+        }
+        .classify a{
+            text-decoration:none;
+            color:#fff;
+        }
+        .classify a:hover{
+            color:red;
+        }
+        .classify_o{
+            transform: translateY(-100%);
+        }
+        .classify_e{
+            transform: translateY(-100%);
+        }
+
+        .classify>*{
+            width: 100%;
+            height:calc(100vh / 3);
+            margin:auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+          
+        }
+
+        .open-active {
+            flex:3; 
+            
+        }
+        .open-classify{
+            transform: translateY(0%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container open">
+            <p>開放式課程</p>
+            <div class="classify classify_o">
+                <a href="#" style="background-color: #006000;">推廣教育</a>
+                <a href="#" style="background-color: #007500;">生涯規劃</a>
+                <a href="#" style="background-color: #009100;">開放式課程</a>
+            </div>
+        </div>
+        <div class="container edu">
+            <p>教育部資源</p>
+            <div class="classify classify_e">
+                 <a href="#" style="background-color: #003060;">推廣教育</a>
+                 <a href="#" style="background-color: #003D79;">生涯規劃</a>
+                 <a href="#" style="background-color: #004B97;">開放式課程</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    ; (function () {
+        const open = document.querySelector(".open");
+        const edu = document.querySelector(".edu");
+        const classify_o = document.querySelector(".classify_o");
+        const classify_e = document.querySelector(".classify_e");
+        function clickHandlerOpen() {
+            this.classList.toggle("open-active");
+            classify_o.classList.toggle("open-classify");
+        }
+        function clickHandlerEdu() {
+            this.classList.toggle("open-active");
+            classify_e.classList.toggle("open-classify");
+        } 
+        open.addEventListener("click", clickHandlerOpen);
+        edu.addEventListener("click", clickHandlerEdu);
+
+    })()
+</script>
+
+</html>
